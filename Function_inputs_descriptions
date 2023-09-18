@@ -1,12 +1,7 @@
 List of some repeatedly used function inputs, 
 in the form [name] ([default value if it is optional]): [description]
--	data: a length T (total number of timesteps) vector (for univariate), or n x T matrix
-(for multivariate) of observations
--	theta: vector into which all the parameters have been concatenated, in the order d, 
-A, B, gamma, alpha, beta, where matrices are flattened by row, and B and beta begin
-with the coefficients corresponding to the most recent lagged values. Does not include
-coefficients for exogeneous covariates if taken as input for multivariate simulations,
-otherwise exogeneous covariates are appended at the end of the vector.  
+-	data: a length T (total number of timesteps) vector (for univariate), or n x T matrix (for multivariate) of observations
+-	theta: vector into which all the parameters have been concatenated, in the order d, A, B, gamma, alpha, beta, where matrices are flattened by row, and B and beta begin with the coefficients corresponding to the most recent lagged values. Does not include coefficients for exogeneous covariates if taken as input for multivariate simulations, otherwise exogeneous covariates are appended at the end of the vector.  
 -	n (=2): an integer number of nodes for the multivariate model 
 -	ll (=F): set to T for a log-linear model
 -	marginal (=T): set to F for a jointly zero-inflated multivariate model
@@ -14,30 +9,19 @@ otherwise exogeneous covariates are appended at the end of the vector.
 -	parp (=1): lag order of response variables in p_t or p_{i, t}
 -	burnin (=100): length of the burn-in period
 -	t.max (=500): number of time-steps returned in the simulated process
--	lchange: EM algorithm terminates when the percentage decrease between successive
-incomplete log-likelihoods is < lchange
+-	lchange: EM algorithm terminates when the percentage decrease between successive incomplete log-likelihoods is < lchange
 -	max.iters: EM algorithm terminates when the number of iterations exceeds max.iters
 -	M_maxits (=500): number of iterations of the Nelder-Mead algorithm in the maximisation step of EM
--	adj_mat (=0 fits a full model): If using the constraint ‘o’, the adjacency matrix
-needs to have 1’s on the diagonal otherwise it will not be autoregressive. If using the
-constraint ‘g’, do not include 1’s on the diagonal. 
+-	adj_mat (=0 fits a full model): If using the constraint ‘o’, the adjacency matrix needs to have 1’s on the diagonal otherwise it will not be autoregressive. If using the constraint ‘g’, do not include 1’s on the diagonal. The (not necessarily symmetric) 'adjacency matrix' is defined here as only containing 1's and 0's. 
 -	past_vals (=0 uses a burn-in): include max(arp, parp) past values to 
 -	past_intensity (=0 uses a burn-in):  input the intensity at the previous time step. 
 -	exo (=0 no exogeneous covariates): an n x T matrix of exogeneous covariates – 1 value per node per timestep. 
--	exo_coefs (=0 no exogeneous covariates):  a length n vector of coefficients for
-exogeneous covariates, to use in mzip simulations. 
--	constraint (=’o’): Set constraint=’g’ to impose further constraints on the
-coefficients that determine the effects of neighbouring nodes, as described in
-subsection 3.2.1. 
--	global.neighbour (=T) Set to F for coefficients for regressors going into different
-nodes to be distinct. 
--	ints: a length T vector (univariate), or n x T matrix (multivariate) of fitted
-intensities if drawing from the Poisson distribution at time t. These can be obtained
-using zip.fitted or mzip.fitted. 
--	probs: a length T vector (zip or jointly zero-inflated mzip) or n x T matrix of
-fitted probabilities of drawing from the ‘zero distribution’ at time t. 
--	fitted: a list containing two elements ‘ints’ and ‘probs’ as defined above (usually
-used for evaluating forecasted densities). 
+-	exo_coefs (=0 no exogeneous covariates):  a length n vector of coefficients for exogeneous covariates, to use in mzip simulations. 
+-	constraint (=’o’): Set constraint=’g’ to impose further constraints on the coefficients that determine the effects of neighbouring nodes, as described in subsection 3.2.1. 
+-	global.neighbour (=T) Set to F for coefficients for regressors going into different nodes to be distinct. 
+-	ints: a length T vector (univariate), or n x T matrix (multivariate) of fitted intensities if drawing from the Poisson distribution at time t. These can be obtained using zip.fitted or mzip.fitted. 
+-	probs: a length T vector (zip or jointly zero-inflated mzip) or n x T matrix of fitted probabilities of drawing from the ‘zero distribution’ at time t. 
+-	fitted: a list containing two elements ‘ints’ and ‘probs’ as defined above (usually used for evaluating forecasted densities). 
 -	maxar (=1): max(arp, parp). 
 -	h (=1): number of time steps ahead to forecast
 -	nsims (=1000): number of simulations for bootstrapping
