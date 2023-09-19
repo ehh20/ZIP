@@ -444,8 +444,8 @@ zip.rqr <- function(data, ints, probs){
 vuong_nonnested <- function(lls1, lls2){
   
   # inputs:
-  # lls1: length T vector of log likelihoods under the first model
-  # lls2: length T vector of log likelihoods under the second model
+    # lls1: length T vector of log likelihoods under the first model
+    # lls2: length T vector of log likelihoods under the second model
   # returns the test statistic for Vuong's test for non-nested models
   
   n <- length(lls1)
