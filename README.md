@@ -12,4 +12,4 @@ Brief description of file contents:
 
 -   `MZIP_helper_functions.R` contains 'helper functions' that are used within the functions in `MZIP.R`. Functions in this file probably do not need to be called directly.
 
--   `PAR_HMM.R` is a basic implementation of the order (1,q) INGARCH model described in @fokianos2009. This is then extended to a 2-state hidden (homogeneous) markov model, where the other state emitting from a Poisson distribution with low rate.
+-   `PAR_HMM.R` is a basic implementation of the order (1,q) INGARCH model described in [Fokianos et al., 2012](https://www.tandfonline.com/doi/abs/10.1198/jasa.2009.tm08270). This is then extended to a 2-state hidden (homogeneous) markov model, where the other state emitting from a Poisson distribution with low rate.
