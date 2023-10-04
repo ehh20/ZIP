@@ -1,4 +1,3 @@
-
 # ZIP
 
 This repository contains some functions for fitting what might be called 'ZIP-INGARCH(1,q)' (zero-inflated Poisson Integer-valued GARCH) models (with exogeneous covariates) to a network count process.
